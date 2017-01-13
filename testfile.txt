@@ -1,0 +1,9 @@
+print 2 + 34 ; 
+s = 2 + 3 ; 
+t = 9 - 2 ; 
+print s * t ; 
+r = 6 ;
+print s + t ;
+y = 5 ;
+print y * s ;
+print 7 + y + r * 9 + s ;
