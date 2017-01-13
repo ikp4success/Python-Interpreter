@@ -5,7 +5,7 @@
 import re
 import sys
 
-print('Interpreter Program')
+print('Interpreter Program');
 stmtArray = [];
 tokenList = [];
 data={};
@@ -19,9 +19,9 @@ def stmtlist():
 				if(typeError(stmt)==False): #checking for type error
 					stmtArray.append(stmt);
 				else:
-					print "Statement is invalid";
+					print ("Statement is invalid");
 		else:
-			print "Statement is Invalid";
+			print ("Statement is invalid");
 	return stmtArray;
 
 def isEmpty(stmt):#checking if its empty
@@ -65,17 +65,17 @@ def lex(stmt):
 def evaluatePrint(stmtln):
 	 if(stmtln.find(";") > -1):
 	 	stmtln2 = stmtln.split(" ;")[0]; # removes ';' sign at the end of each statement
-		printexpr = stmtln2[6:]; # gets substring without print on it, like it strips the print out of stmt
-		print Evaluate(printexpr);
+	 	printexpr = stmtln2[6:]; # gets substring without print on it, like it strips the print out of stmt
+	 	print (Evaluate(printexpr));
 	 else:
-		print "Statement is invalid" # Statement is Invalid if it does not have the ';' sign
+	 	print ("Statement is invalid"); # Statement is Invalid if it does not have the ';' sign
 
 def evaluateId(stmtln):
 	if(stmtln.find(";") > -1):
 		stmtln2 = stmtln.split(";")[0]; # removes ';' sign at the end of each statement
-		print Evaluate(stmtln2);
+		print (Evaluate(stmtln2));
 	else:
-		print "Statement is invalid" # Statement is Invalid if it does not have the ';' sign
+		print ("Statement is invalid"); # Statement is Invalid if it does not have the ';' sign
 
 def term(passedNum):
 	if(re.search(r"\d* \* \d*", passedNum)):
@@ -136,16 +136,14 @@ def Evaluate(expression):#print s * t ;
 		except ValueError:
 			id = expression.split("=")[0];
 			printexpr = expression[6:];
-        	
-        	if (id in data):#return value for unknown variable like s=2+3 returns the value for s which was already stored in data dict
-
-        		return data.get(id);
-        	else:
-        		try:
-        			value = float(expression);
-        			return value;#returns float value to value
-        		except ValueError:
-        			print "Statement is Invalid";
+			if (id in data):#return value for unknown variable like s=2+3 returns the value for s which was already stored in data dict
+				return data.get(id);
+			else:
+				try:
+					value = float(expression);
+					return value;#returns float value to value
+				except ValueError:
+					print ("Statement is invalid");
 #Main method
 def stmt():
 	for stmtln in stmtlist():
@@ -155,7 +153,3 @@ def stmt():
 			evaluateId(stmtln);#send statments withou print for evaluation
 
 stmt();
-
-
-
-
